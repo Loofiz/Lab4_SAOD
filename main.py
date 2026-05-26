@@ -105,5 +105,25 @@ class CodeGenerator:
         return code
 
 
+if __name__ == "__main__":
+    shorter = Urlshorter()
+
+    # Добавление ссылок
+    code1 = shorter.add_url("https://example.com/very-long-article-about-python")
+    code2 = shorter.add_url("https://google.com")
+
+    print(code1)  # "0"
+    print(code2)  # "1"
+
+    # Получение исходной ссылки
+    print(shorter.get_url("0"))  # "https://example.com/very-long-article-about-python"
+
+    # Проверка существования
+    print(shorter.exists("0"))  # True
+    print(shorter.exists("abc"))  # False
+
+    # Все ссылки
+    print(shorter.list_all())
+
 
 
